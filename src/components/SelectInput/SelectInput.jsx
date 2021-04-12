@@ -6,13 +6,24 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 
-const SelectInput = ({ formState, register, label, placeholder, children }) => (
-  <FormControl id={label} isInvalid={formState.errors[label]}>
-    <FormLabel mt={4}>Choose a subject of your problem</FormLabel>
-    <Select placeholder={placeholder} {...register(label)}>
+const SelectInput = ({
+  formState: { errors },
+  register,
+  label,
+  placeholder,
+  children,
+  disabled,
+}) => (
+  <FormControl id={label} isInvalid={errors[label]}>
+    <FormLabel mt={4} mb={0.5}>
+      Choose a subject of your problem
+    </FormLabel>
+    <Select placeholder={placeholder} {...register(label)} disabled={disabled}>
       {children}
     </Select>
-    <FormErrorMessage>{formState.errors[label]?.message}</FormErrorMessage>
+    <FormErrorMessage mt={0.5} mb={0}>
+      {errors[label]?.message}
+    </FormErrorMessage>
   </FormControl>
 );
 

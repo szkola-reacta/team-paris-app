@@ -6,11 +6,25 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 
-const TextareaInput = ({ formState, register, label, placeholder }) => (
-  <FormControl id={label} isInvalid={formState.errors[label]}>
-    <FormLabel mt={4}>Describe your problem</FormLabel>
-    <Textarea placeholder={placeholder} {...register(label)} />
-    <FormErrorMessage>{formState.errors[label]?.message}</FormErrorMessage>
+const TextareaInput = ({
+  formState: { errors },
+  register,
+  label,
+  placeholder,
+  disabled,
+}) => (
+  <FormControl id={label} isInvalid={errors[label]}>
+    <FormLabel mt={4} mb={0.5}>
+      Describe your problem
+    </FormLabel>
+    <Textarea
+      placeholder={placeholder}
+      {...register(label)}
+      disabled={disabled}
+    />
+    <FormErrorMessage mt={0.5} mb={0}>
+      {errors[label]?.message}
+    </FormErrorMessage>
   </FormControl>
 );
 
