@@ -1,17 +1,16 @@
 import React from 'react';
+import {Box} from "@chakra-ui/react";
+
+import PropertyPreview from "./PropertyPreview";
 
 function PropertyList({properties}) {
 
-    console.log(properties[0]);
-
-    const content = properties.map((el) => {
-        return (<div>{el.name}</div>)
+    const content = properties.map((el, i) => {
+        return (<PropertyPreview key={`prop-${i}`} property={el}/>)
     });
 
     return (
-        <div>
-            {content}
-        </div>
+        <Box w="750px">{content}</Box>
     )
 }
 
