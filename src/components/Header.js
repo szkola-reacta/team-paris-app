@@ -7,13 +7,13 @@ import {Logo} from "../components";
 function Header() {
 
     return (
-        <Flex bg="navy" w="100%" justify="center">
+        <Flex bg="blue.600" w="100%" justify="center">
             <Flex padding="10px" h="100%" w="90%" align="center" justify="space-between">
                 <Logo h="36px"/>
                 <Flex align="center">
                     <Flex h="36px"
                           padding="5px"
-                          _hover={{bgColor: "rgba(255,255,255,0.3)", borderRadius: 5}}>
+                          _hover={{bgColor: "blue.400", borderRadius: "5px"}}>
                         <QuestionOutlineIcon
                             color="white"
                             fontSize="28px"/>

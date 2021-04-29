@@ -11,16 +11,15 @@ const Link = {
     baseStyle: {
         borderRadius: 0,
         border: "1px solid",
-        borderColor: "steelblue",
+        borderColor: "blue.500",
         cursor: "pointer",
         fontWeight: 400,
-        _hover: {bgColor: "lightblue", textDecoration: "none"}
+        _hover: {bgColor: "blue.400", textDecoration: "none"}
     },
-    hover: {backgroundColor: "orange"},
     sizes: {
         sm: {
             height: "36px",
-            fontSize: "14px",
+            fontSize: "md",
             lineHeight: "36px",
             padding: "0 15px",
             marginLeft: "10px",
@@ -29,7 +28,7 @@ const Link = {
     variants: {
         login: {
             backgroundColor: "white",
-            color: "steelblue",
+            color: "blue.500",
         }
     },
     defaultProps: {
@@ -40,18 +39,22 @@ const Link = {
 
 const theme = extendTheme({
     colors: {
-        navy: "#033a80",
-        steelblue: "#1f82c9",
-        lightblue: "#e5ffff"
-    },
-    container: {
-        width: "90%",
+        blue: {
+            400: "#BAD4F7",
+            500: "#0071C2",
+            600: "#003580",
+            700: "#00224F",
+        },
+        gray: {
+            100: "#BDBDBD",
+            150: "#6B6B6B",
+            200: "#DDDFE2",
+        },
     },
     components: {
         Link
     }
 });
-
 
 ReactDOM.render(
     <React.StrictMode>
@@ -60,9 +63,4 @@ ReactDOM.render(
         </ChakraProvider>
     </React.StrictMode>,
     document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+)
