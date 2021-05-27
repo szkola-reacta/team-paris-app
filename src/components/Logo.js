@@ -1,16 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import logo from "../assets/logo-white.png";
+import logo from '../assets/logo-white.png';
 
-function Logo({h}) {
+function Logo({ h }) {
+  const styles = {
+    height: h,
+  };
 
-    const styles = {
-        height: h
-    };
-
-    return (
-        <img style={styles} src={logo} />
-    );
+  return <img style={styles} src={logo} />;
 }
 
 export default Logo;
