@@ -1,7 +1,9 @@
+import { Box } from '@chakra-ui/layout';
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
+import CustomInputDatePicker from './CustomInputDatePicker/CustomInputDatePicker';
 const todayDate = new Date();
 
 const CustomDatePicker = () => {
@@ -38,8 +40,13 @@ const CustomDatePicker = () => {
         dateFormat="dd/MM/yyyy"
         selectsRange={true}
         shouldCloseOnSelect={false}
-        placeholderText={`${startDatePlaceHolder} - ${endDatePlaceHolder}`}
-      />
+        customInput={<CustomInputDatePicker onChange={onChange} placeholderText={`${startDatePlaceHolder} - ${endDatePlaceHolder}`} />}
+      >
+        <Box p={2}>
+          {startDatePlaceHolder} - {endDatePlaceHolder}.{' '}
+          {startDate && endDate ? `Stay for ${(endDate - startDate) / (1000 * 3600 * 24)} days.` : null}
+        </Box>
+      </DatePicker>
     </div>
   );
 };
