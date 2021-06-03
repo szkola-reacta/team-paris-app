@@ -27,6 +27,9 @@ const CustomDatePicker = () => {
 
   const startDatePlaceHolder = startDate ? customDateFormat(startDate) : 'Check-in';
   const endDatePlaceHolder = endDate ? customDateFormat(endDate) : 'Check-out';
+  const lengthOfStay = (endDate - startDate) / (1000 * 3600 * 24);
+
+  console.log('startDate', startDate, 'endDate', endDate);
 
   return (
     <div style={{ margin: '0 auto' }}>
@@ -43,8 +46,7 @@ const CustomDatePicker = () => {
         customInput={<CustomInputDatePicker onChange={onChange} placeholderText={`${startDatePlaceHolder} - ${endDatePlaceHolder}`} />}
       >
         <Box p={2}>
-          {startDatePlaceHolder} - {endDatePlaceHolder}.{' '}
-          {startDate && endDate ? `Stay for ${(endDate - startDate) / (1000 * 3600 * 24)} days.` : null}
+          {startDatePlaceHolder} - {endDatePlaceHolder}. {startDate && endDate ? `Length of stay: ${lengthOfStay} days.` : null}
         </Box>
       </DatePicker>
     </div>
